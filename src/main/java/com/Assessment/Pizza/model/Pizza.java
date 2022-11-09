@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "number")
     private Long number;
     private String crust;
     private String[] toppings;

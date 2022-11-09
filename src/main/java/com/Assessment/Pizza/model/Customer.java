@@ -6,7 +6,8 @@ import javax.persistence.*;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "name")
+    @Column(name= "id")
+    private Long id;
     private String name;
     private String phone;
 
@@ -21,6 +22,14 @@ public class Customer {
         this.name = name;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -33,6 +42,7 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
+                ", id=" + id +
                 ", phone='" + phone + '\'' +
                 '}';
     }

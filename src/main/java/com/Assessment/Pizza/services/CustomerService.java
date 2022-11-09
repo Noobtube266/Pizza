@@ -16,11 +16,29 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    public void verifyCustomer(Long customerId) {
+        Customer customer = customerRepository.findById(customerId).orElse(null);
+    }
+
     public void createCustomer(Customer customer){
         customer = customerRepository.save(customer);
     }
 
-    public Iterable<Customer> getCustomer(){
-        return customerRepository.findAll();
+    public ResponseEntity<?> getCustomer(Long customerId) {
+        Optional<Customer> c = customerRepository.findById(customerId);
+        return new ResponseEntity<> (c, HttpStatus.OK);
+    }
+
+    public void updateCustomer(Customer customer, Long customerId){
+        customerRepository.save(customer);
+    }
+
+    public ResponseEntity<?> deleteCustomer(Long customerId) {
+        customerRepository.deleteById(customerId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    public ResponseEntity<Iterable<Customer>> getAllCustomers() {
+        Iterable<Customer> allCustomers = customerRepository.findAll();
+        return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
 }

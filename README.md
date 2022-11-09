@@ -1,5 +1,6 @@
 # Pizza
 API(application programming interfaces) notes
+
 ```=Chapter 1 Recap=
 -Server: A powerful computer that runs an API
 -API: The "hidden" portion of a website that is meant for computer

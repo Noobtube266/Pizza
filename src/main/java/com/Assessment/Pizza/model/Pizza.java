@@ -1,5 +1,7 @@
 package com.Assessment.Pizza.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Arrays;
 
@@ -8,6 +10,7 @@ public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "number")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long number;
     private String crust;
     private String[] toppings;
